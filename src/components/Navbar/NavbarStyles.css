@@ -1,0 +1,235 @@
+:root {
+    --primary-color: #1E3A8A;
+    --primary-light: #3B82F6;
+    --text-dark: #1F2937;
+    --text-light: #6B7280;
+    --background-light: #F9FAFB;
+    --transition: all 0.3s ease;
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent;
+    transition: var(--transition);
+    padding: 20px 0;
+  }
+  
+  .navbar-scrolled {
+    background-color: rgba(15, 23, 42, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 12px 0;
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+    transition: var(--transition);
+  }
+  
+  .logo:hover {
+    color: var(--primary-light);
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+  }
+  
+  .nav-links li {
+    position: relative;
+  }
+  
+  .nav-links li a {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 10px 16px;
+    transition: var(--transition);
+  }
+  
+  .nav-links li a:hover {
+    color: white;
+  }
+  
+  .nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-light);
+    transition: var(--transition);
+  }
+  
+  .nav-links li a:hover::after {
+    width: calc(100% - 32px);
+  }
+  
+  /* Join Now Button */
+  .nav-button {
+    margin-left: 10px;
+  }
+  
+  .btn-primary {
+    background-color: var(--primary-light);
+    color: white !important;
+    border-radius: 30px;
+    padding: 8px 20px !important;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+    transition: var(--transition);
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
+  }
+  
+  .btn-primary::after {
+    display: none;
+  }
+  
+  /* Mobile Menu Button */
+  .mobile-menu-btn {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .menu-icon {
+    width: 30px;
+    height: 22px;
+    position: relative;
+    cursor: pointer;
+    z-index: 200;
+  }
+  
+  .menu-icon span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: white;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+  }
+  
+  .menu-icon span:nth-child(1) {
+    top: 0px;
+  }
+  
+  .menu-icon span:nth-child(2) {
+    top: 10px;
+  }
+  
+  .menu-icon span:nth-child(3) {
+    top: 20px;
+  }
+  
+  .menu-icon.open span:nth-child(1) {
+    top: 10px;
+    transform: rotate(135deg);
+  }
+  
+  .menu-icon.open span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+  }
+  
+  .menu-icon.open span:nth-child(3) {
+    top: 10px;
+    transform: rotate(-135deg);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .mobile-menu-btn {
+      display: block;
+    }
+  
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background-color: var(--text-dark);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 80px 30px 30px;
+      transition: 0.35s ease-in-out;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+  
+    .nav-links.active {
+      right: 0;
+    }
+  
+    .nav-links li {
+      width: 100%;
+    }
+  
+    .nav-links li a {
+      width: 100%;
+      padding: 15px 0;
+      font-size: 1.1rem;
+    }
+  
+    .nav-links li a::after {
+      display: none;
+    }
+  
+    .nav-button {
+      margin-left: 0;
+      margin-top: 15px;
+      width: 100%;
+    }
+  
+    .btn-primary {
+      display: block;
+      text-align: center;
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .navbar {
+      padding: 15px 0;
+    }
+  
+    .navbar-container {
+      padding: 0 15px;
+    }
+  
+    .logo {
+      font-size: 1.3rem;
+    }
+  }
